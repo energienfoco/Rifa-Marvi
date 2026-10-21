@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#24472f">
+<title>Rifa | Marvi en la granja</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">🐓</span><span><b>MARVI EN LA GRANJA</b><small>RIFA CRIOLLA · TRADICIÓN CAMPESINA</small></span></a>
+  <button class="outline-btn" id="adminBtn">⚙ Administrar</button>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">🌿 UNA RIFA MUY DE NUESTRA TIERRA</span>
+    <h1>¡Gana una pareja<br><em>de gigantes!</em></h1>
+    <p>Participa en la rifa de <strong>2 parejas de pollos criollos gigantes colombianos</strong>. Escoge tus números favoritos y comparte la suerte.</p>
+    <div class="hero-details">
+      <div><small>PREMIO</small><b>2 parejas</b></div>
+      <div><small>NÚMEROS</small><b>00 al 99</b></div>
+      <div><small>PAGO</small><b>Por Nequi</b></div>
+    </div>
+    <a class="main-btn" href="#numeros">Escoger mis números <span>→</span></a>
+  </div>
+  <div class="hero-art" aria-label="Ilustración de gallo y gallina">
+    <div class="sun"></div><div class="birds">🐓<span>🐔</span></div>
+    <div class="art-caption"><small>PREMIO DE LA RIFA</small><b>Pollos criollos<br>gigantes colombianos</b><span>¡Mucha suerte! 🍀</span></div>
+    <div class="leaf leaf-one">🌿</div><div class="leaf leaf-two">🌾</div>
+  </div>
+</section>
+
+<main>
+  <section class="stats">
+    <div><span>🟢</span><b id="availableCount">100</b><small>Disponibles</small></div>
+    <div><span>🟡</span><b id="pendingCount">0</b><small>Por confirmar</small></div>
+    <div><span>✅</span><b id="paidCount">0</b><small>Confirmados</small></div>
+  </section>
+
+  <section class="numbers-section" id="numeros">
+    <div class="section-heading">
+      <div><span class="eyebrow dark">ESCOGE TU SUERTE</span><h2>Elige tus números</h2><p>Primero escribe tus datos y luego selecciona uno o varios números disponibles.</p></div>
+      <div class="price-pill">Valor por número <b id="priceDisplay">Por definir</b></div>
+    </div>
+
+    <div class="form-grid">
+      <label>Tu nombre y apellido<input id="buyerName" autocomplete="name" placeholder="Ej. María Pérez"></label>
+      <label>Tu WhatsApp<input id="buyerPhone" autocomplete="tel" inputmode="tel" placeholder="Tu número de celular"></label>
+    </div>
+
+    <div class="legend">
+      <span><i class="available"></i>Disponible</span><span><i class="selected"></i>Seleccionado</span><span><i class="pending"></i>Reservado</span><span><i class="paid"></i>Pagado</span>
+    </div>
+    <div class="number-grid" id="numberGrid"></div>
+
+    <div class="summary-bar">
+      <div class="summary-selected"><small>TUS NÚMEROS</small><b id="selectionText">Ninguno seleccionado</b></div>
+      <div class="summary-total"><small>TOTAL</small><b id="totalText">Por calcular</b></div>
+      <button id="reserveBtn" class="main-btn" disabled>Enviar por WhatsApp <span>→</span></button>
+    </div>
+    <p class="hint">Tu solicitud se enviará por WhatsApp al organizador. Los números quedan confirmados cuando se verifique el pago.</p>
+  </section>
+
+  <section class="payment">
+    <div class="payment-copy"><span class="eyebrow dark">PAGO FÁCIL Y SEGURO</span><h2>Participa por Nequi</h2><p>Realiza la transferencia únicamente después de confirmar el valor de tus números con el organizador. Envía el comprobante por WhatsApp.</p></div>
+    <div class="nequi-card"><div class="nequi-mark">N</div><div><small>NEQUI · TITULAR</small><b>Edwin Rodríguez</b><strong>315 723 8632</strong></div><button id="copyNequi" class="copy-btn">Copiar número</button></div>
+  </section>
+
+  <section class="steps-section">
+    <div><span class="eyebrow dark">¿CÓMO PARTICIPAR?</span><h2>¡Es muy fácil!</h2></div>
+    <div class="steps">
+      <article><b>01</b><h3>Escoge</h3><p>Selecciona los números que estén disponibles.</p></article>
+      <article><b>02</b><h3>Envía</h3><p>Comparte tus datos y números por WhatsApp.</p></article>
+      <article><b>03</b><h3>Confirma</h3><p>Coordina el pago por Nequi y envía el comprobante.</p></article>
+    </div>
+  </section>
+  <section class="share-section"><div><h2>¡Comparte la suerte! 🐓</h2><p>Invita a tus amigos y familiares a participar.</p></div><button id="shareBtn" class="whatsapp-btn">Compartir rifa por WhatsApp</button></section>
+</main>
+<footer><b>🐓 Marvi en la granja</b><span>Rifa de 2 parejas de pollos criollos gigantes colombianos.</span></footer>
+
+<div class="modal-backdrop" id="adminModal">
+  <div class="modal">
+    <button class="close-btn" data-close="adminModal">×</button>
+    <span class="eyebrow dark">PANEL DEL ORGANIZADOR</span><h2>Administración de la rifa</h2>
+    <div class="warning">Esta versión guarda los datos solo en este navegador. No es una plataforma en línea compartida ni tiene contraseña de administrador.</div>
+    <div class="tabs"><button class="tab active" data-tab="reservas">Reservas</button><button class="tab" data-tab="ajustes">Ajustes</button></div>
+    <div id="panel-reservas" class="panel">
+      <div class="admin-metrics"><div><small>Pagos confirmados</small><b id="adminPaid">0</b></div><div><small>Solicitudes pendientes</small><b id="adminPending">0</b></div></div>
+      <div id="ordersList"></div>
+    </div>
+    <div id="panel-ajustes" class="panel hidden">
+      <label>Precio por número (COP)<input id="priceInput" type="number" min="1" placeholder="Escribe el valor, por ejemplo 5000"></label>
+      <label>Fecha del sorteo (opcional)<input id="dateInput" type="date"></label>
+      <button id="saveSettings" class="main-btn full">Guardar ajustes</button>
+      <button id="resetData" class="danger-btn full">Borrar todas las reservas</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
